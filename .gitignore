@@ -1,0 +1,16 @@
+# 共通
+node_modules/
+.env
+.DS_Store
+
+# ビルド後の不要ファイル
+dist/
+build/
+
+# React (FrontEnd/my-app)
+FrontEnd/my-app/node_modules/
+FrontEnd/my-app/dist/
+
+# Node.js (BackEnd)
+BackEnd/node_modules/
+BackEnd/project/**/node_modules/

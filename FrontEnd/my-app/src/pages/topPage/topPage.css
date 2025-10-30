@@ -1,0 +1,125 @@
+.topPage-container{
+    background: linear-gradient(to right,rgb(37, 37, 37),rgb(76, 76, 76));
+    height: 160vh;
+    width: 100%;
+    overflow-x: hidden; /*余分な横スクロールをなくす*/
+}
+
+/*イントロ*/
+.topPage-intro{
+    display: flex;
+    flex-flow: column;
+    height: 70vh;
+    width: 100%;
+    align-items: center;
+    padding: 20px;
+}
+
+.intro-title h1{
+    padding: 20px;
+    margin-top: 3rem;
+    color: rgb(225, 225, 225);
+    background-color: rgb(42, 42, 42);
+    margin-bottom: 6rem;
+    font-size: 2.5rem;
+    border-top: solid 2px rgb(91, 91, 91);
+    border-left: solid 2px rgb(101, 101, 101);
+    border-radius: 20px;
+    box-shadow: 3px 3px 4px rgb(73, 73, 73);
+    cursor: default;
+}
+
+.intro-subText{
+    padding: 40px;
+    background-color: rgb(41, 41, 41);
+    justify-self: center;
+    align-items: center;
+    border-top: solid 2px rgb(91, 91, 91);
+    border-left: solid 2px rgb(98, 98, 98);
+    border-right: solid 2px rgb(91, 91, 91);
+    box-shadow: 3px 3px 4px rgb(93, 93, 93);
+    border-radius: 5px;
+}
+
+.intro-subText p{
+    color: rgb(225, 225, 225);
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+    text-align: center;
+    cursor: default;
+}
+
+/*プロジェクト概要*/
+
+.projects{
+    color: rgb(225, 225, 225);
+    display: flex;
+    margin-top: 0.5rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    height: 78vh;
+    width: 100%;
+}
+
+.project{
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+
+    align-items: center;
+    justify-self: center;
+    background-color: rgb(41, 41, 41);
+    box-shadow: 3px 3px 4px rgb(93, 93, 93);
+    margin: 40px 50px;
+
+    border: solid 2px rgb(42, 42, 42);
+    border-top: solid 2px rgb(91, 91, 91);
+    border-left: solid 2px rgb(98, 98, 98);
+    border-radius: 50px;
+
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.project:hover{ 
+    margin: 20px 30px;    /*安定した数値(m+p)*/
+    padding: 20px;        /*サイズが変化はtransformで対応ok*/
+}
+
+.project h2{
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    padding:  0 20px;
+    border-bottom: solid 2px rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+.project p{
+    text-align: center;
+    font-weight: bold;
+}
+
+.topP{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.project h3{
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: solid 1px rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+.project li{
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.bottomP{
+    margin-top: 2rem;
+    font-size: 1.15rem;
+}
