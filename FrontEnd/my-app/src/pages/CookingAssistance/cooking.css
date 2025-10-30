@@ -88,9 +88,11 @@
 /*条件入力部分*/
 .input-area{
     padding: 20px;
+    width: 100%;
     display: flex;
     flex-flow: column;
     align-items: center;
+    justify-content: center;
     font-weight: bold;
 }
 
@@ -114,11 +116,52 @@
 .selection {
     margin-top: 20px;
     display: flex;
+    flex-flow: column;
+    width: 100%;
 }
 
-.selection input,select{
+.selection label{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.selection input,select,textarea{
     background-color: rgb(105, 105, 105);
     color: rgb(255, 255, 255);
-    border: solid 2px rgb(61, 61, 61);
-    border-radius: 5px;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+}
+
+.selection textarea{
+    height: 150px;
+}
+
+.selection input::placeholder,textarea::placeholder{
+    color: rgb(166, 166, 166);
+}
+
+.submit-area {
+    display: flex;
+    margin-top: 60px;
+}
+
+.submit-btn {
+    background-color: rgb(80, 80, 80);
+    color: rgb(255, 255, 255);
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 5px;
+    border: none;
+    border-radius: 20px;
+
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.submit-btn:hover{
+    background-color: rgb(93, 93, 93);
+    transform: scale(1.03);
 }

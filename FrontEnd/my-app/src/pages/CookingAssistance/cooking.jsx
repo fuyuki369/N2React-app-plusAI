@@ -58,21 +58,21 @@ function CookingAssistance(){
                                     type="text"
                                     id="mein-ingredient"
                                     value={meinIngredient}
-                                    onChange={(e) =>setMeinIngredient(e)}   //valueとonChangeはセット意識
+                                    onChange={(e) =>setMeinIngredient(e.target.value)}   //valueとonChangeはセット意識
                                 />
                                 <label htmlFor="sub-ingredient">追加したい食材</label>
                                 <input 
                                     type="text" 
                                     id="sub-ingredient"
                                     value={subIngredient}
-                                    onChange={(e) =>setSubIngredient(e)}
+                                    onChange={(e) =>setSubIngredient(e.target.value)}
                                 />
                                 <label htmlFor="avoid-ingredient">避けたい食材</label>
                                 <input 
                                     type="text"
                                     id="avoid-ingredient"
                                     value={avoidIngredient}
-                                    onChange={(e) =>setAvoidIngredient(e)}
+                                    onChange={(e) =>setAvoidIngredient(e.target.value)}
                                 />
                             </div>
                         </div>
@@ -81,7 +81,7 @@ function CookingAssistance(){
                             <h4>ジャンル・分類</h4>
                             <div className="selection genre-selection">
                                 <label htmlFor="cuisine-type">料理ジャンル</label> 
-                                <select id="cuisine-type" value={cuisineType} onChange={(e) =>setCuisineType(e)}>
+                                <select id="cuisine-type" value={cuisineType} onChange={(e) =>setCuisineType(e.target.value)}>
                                     <option value="">指定無し</option>
                                     <option value="japanese-cuisine">和食</option>
                                     <option value="western-cuisine">洋食</option>
@@ -90,7 +90,7 @@ function CookingAssistance(){
                                     <option value="korean-cuisine">韓国料理</option>
                                 </select>
                                 <label htmlFor="category">分類</label> 
-                                <select id="category" value={category} onChange={(e) =>setCategory(e)}>
+                                <select id="category" value={category} onChange={(e) =>setCategory(e.target.value)}>
                                     <option value="">指定無し</option>
                                     <option value="main-dish">主菜</option>
                                     <option value="side-dish">副菜</option>
@@ -99,7 +99,7 @@ function CookingAssistance(){
                                     <option value="drink">ドリンク</option>
                                 </select>
                                 <label htmlFor="season">シーズン</label> 
-                                <select id="season" value={season} onChange={(e) =>setSeason(e)}>
+                                <select id="season" value={season} onChange={(e) =>setSeason(e.target.value)}>
                                     <option value="">指定無し</option>
                                     <option value="spring">春</option>
                                     <option value="summer">夏</option>
@@ -113,7 +113,7 @@ function CookingAssistance(){
                             <h4>調理時間・難易度</h4>
                             <div className="selection effort-selection">
                                 <label htmlFor="cook-time">調理時間</label>
-                                <select id="cook-time" value={cookTime} onChange={(e) =>setCookTime(e)}>
+                                <select id="cook-time" value={cookTime} onChange={(e) =>setCookTime(e.target.value)}>
                                     <option value="">指定無し</option>
                                     <option value="5min">5分以内</option>
                                     <option value="15min">15分以内</option>
@@ -121,14 +121,14 @@ function CookingAssistance(){
                                     <option value="60min">1時間以内</option>
                                 </select>
                                 <label htmlFor="difficulty">難易度</label>
-                                <select id="difficulty" value={difficulty} onChange={(e) =>setDifficulty(e)}>
+                                <select id="difficulty" value={difficulty} onChange={(e) =>setDifficulty(e.target.value)}>
                                     <option value="">指定無し</option>
                                     <option value="easy">簡単</option>
                                     <option value="medium">普通</option>
                                     <option value="hard">手の込んだ料理</option>
                                 </select>
                                 <label htmlFor="cost">予算</label>
-                                <select id="const" value={cost} onChange={(e) =>setCost(e)}>
+                                <select id="const" value={cost} onChange={(e) =>setCost(e.target.value)}>
                                     <option value="">指定無し</option>
                                     <option value="500yen">~500円</option>
                                     <option value="1000yen">~1000円</option>
@@ -143,7 +143,7 @@ function CookingAssistance(){
                             <h4>シチュエーション</h4>
                             <div className="selection effort-selection">
                                 <label htmlFor="whom">誰と食べる？</label>
-                                <select id="whom" value={whom} onChange={(e) =>setWhom(e)}>
+                                <select id="whom" value={whom} onChange={(e) =>setWhom(e.target.value)}>
                                     <option value="">指定無し</option>
                                     <option value="solo">１人</option>
                                     <option value="friends">友達</option>
@@ -155,7 +155,7 @@ function CookingAssistance(){
                                     type="text"
                                     placeholder="疲れている/元気出したい/リラックス"
                                     value={mood}
-                                    onChange={(e) =>setMood(e)}
+                                    onChange={(e) =>setMood(e.target.value)}
                                 />
                             </div>
                         </div>
@@ -163,15 +163,20 @@ function CookingAssistance(){
                         <div className="taste">
                             <h4>テイスト・栄養・雰囲気を自由に</h4>
                             <div className="selection taste-selection">
-                                <input 
+                                <textarea 
                                     type="text"
                                     placeholder="おしゃれ/家庭的/さっぱり/濃い味/ダイエット"
                                     value={taste}
-                                    onChange={(e) =>setTaste(e)}
+                                    onChange={(e) =>setTaste(e.target.value)}
                                 />
                             </div>
                         </div>
                         {/*送信ボタン*/}
+                        <div className="submit-area">
+                            <button className="submit-btn" onClick={() => handleSubmit()}> {/*あとで！*/}
+                                この条件をAIに伝える！
+                            </button>
+                        </div>
                     </div>
                 </section>
                 {/*レシピ等提案部分*/}
