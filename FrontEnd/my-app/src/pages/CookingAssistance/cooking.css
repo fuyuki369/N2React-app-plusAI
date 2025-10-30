@@ -88,7 +88,7 @@
 /*条件入力部分*/
 .input-area{
     padding: 20px;
-    width: 100%;
+    width: 60%;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -101,16 +101,21 @@
     padding: 10px;
     margin-bottom: 40px;
     border-bottom: solid 2px rgb(255, 255, 255);
-    align-items: start;
+    text-align: center;
     border-radius: 6px;
 }
 
 .input-area h4 {
     font-size: 1.4rem;
+    width: 100%;
     padding: 10px;
     margin-top: 30px;
     border-bottom: solid 2px rgb(255, 255, 255);
     border-radius: 6px;
+}
+
+.input-conditions{
+    width: 100%;
 }
 
 .selection {
@@ -129,6 +134,7 @@
     background-color: rgb(105, 105, 105);
     color: rgb(255, 255, 255);
     border: none;
+    outline: none; /*フォーカス時の枠線を無くす*/
     border-radius: 10px;
     width: 100%;
     padding: 3px 8px;
@@ -144,14 +150,16 @@
 }
 
 .submit-area {
-    display: flex;
+    display: block;
     margin-top: 60px;
 }
 
 .submit-btn {
-    background-color: rgb(80, 80, 80);
-    color: rgb(255, 255, 255);
-    font-size: 0.8rem;
+    background: linear-gradient(174deg, rgb(222, 217, 158), rgb(148, 117, 160));
+    display: block;
+    margin: 0 auto;
+    color: rgb(70, 64, 64);
+    font-size: 1rem;
     font-weight: bold;
     padding: 5px;
     border: none;
