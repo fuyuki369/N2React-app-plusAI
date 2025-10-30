@@ -88,11 +88,37 @@
 /*条件入力部分*/
 .input-area{
     padding: 20px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-weight: bold;
 }
 
 .input-area h3{
     font-size: 1.8rem;
     padding: 10px;
+    margin-bottom: 40px;
+    border-bottom: solid 2px rgb(255, 255, 255);
+    align-items: start;
+    border-radius: 6px;
+}
+
+.input-area h4 {
+    font-size: 1.4rem;
+    padding: 10px;
+    margin-top: 30px;
     border-bottom: solid 2px rgb(255, 255, 255);
     border-radius: 6px;
+}
+
+.selection {
+    margin-top: 20px;
+    display: flex;
+}
+
+.selection input,select{
+    background-color: rgb(105, 105, 105);
+    color: rgb(255, 255, 255);
+    border: solid 2px rgb(61, 61, 61);
+    border-radius: 5px;
 }
