@@ -115,7 +115,7 @@
 }
 
 .input-conditions{
-    width: 60%;
+    width: 60%;      /*端になりすぎないようにする*/
 }
 
 .selection {
@@ -172,4 +172,69 @@
 .submit-btn:hover{
     background-color: rgb(93, 93, 93);
     transform: scale(1.03);
+}
+
+/*レシピ等提案部分*/
+.recipe-area{
+    width: 100%;
+    margin-top: 90px;
+    display: flex;
+    flex-flow: column;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipe-output{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 20px;
+    width: 60%;  
+}
+
+.recipe-output h3{
+    font-size: 2rem;
+    padding: 5px;
+    margin-bottom: 20px;
+    border-bottom: solid 2px rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.recipe-output p{
+    font-size: 1.4rem;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.recipe-detail{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: left;
+}
+
+.recipe-detail h4{
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border-bottom: solid 2px rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.recipe-detail p{
+    padding: 5px;
+    margin-top: 30px;
+}
+
+.recipe-detail li{
+    margin-left: 60px;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.recipe-point p{
+    font-size: 1.3rem;
 }

@@ -27,15 +27,15 @@ function CookingAssistance(){
 
     //アウトプット
     /*レシピタイトル・概要*/
-    const [IngredientTitle,setIngredientTitle] = useState("");      //レシピタイトル
-    const [IngredientSummary,setIngredientSummary] = useState("");  //レシピ概要
+    const [IngredientTitle,setIngredientTitle] = useState("レシピ名 of the レシピ名");      //レシピタイトル  //css調整のため一時的初期値
+    const [IngredientSummary,setIngredientSummary] = useState("さっぱりした風味で疲労回復にピッタリ！");  //レシピ概要
 
     /*材料・手順(リスト)*/
-    const [ingredients,setIngredients] = useState([]);  //材料リスト
-    const [directions,setDirections] = useState([]);    //手順リスト
+    const [ingredients,setIngredients] = useState(["鶏むね肉 200g","レモン汁 大さじ1","バター 10g"]);  //材料リスト
+    const [directions,setDirections] = useState(["鶏肉を一口大に切る。","フライパンでバターを熱して鶏肉を焼く。","火が通ったらレモン汁を加えて仕上げる。"]);    //手順リスト
 
     /*調理ポイント*/
-    const [recipePoint,setRecipePoint] = useState("");  //調理ポイント
+    const [recipePoint,setRecipePoint] = useState("バターを焦がさないように弱火で仕上げる");  //調理ポイント
 
     return(
         <div className="cooking-container">
@@ -193,45 +193,49 @@ function CookingAssistance(){
                     </div>
                 </section>
 
-                {/*レシピ等提案部分*/}
+                {/*レシピ提案部分*/}
                 <section className="recipe-area">
                     <div className="recipe-output">
-                        <h3>おすすめレシピ:{IngredientTitle}</h3>
-                        <p>{IngredientSummary}</p>
-                        {/*提案材料*/}
-                        <div className="ingredients-output">
-                            <h4>材料</h4>
-                            <div className="ingredients">
-                                <ul>
-                                    {ingredients.map((ingredient,index) => (
-                                        <li key={index}>{ingredient}</li>
-                                    ))}
-                                </ul>
+                        <h3>{IngredientTitle}</h3>
+                        <p>{IngredientSummary}</p> 
+                        <div className="recipe-detail">
+                            {/*提案材料*/}
+                            <div className="ingredients-output">
+                                <h4>材料</h4>
+                                <div className="ingredients">
+                                    <ul>
+                                        {ingredients.map((ingredient,index) => (
+                                            <li key={index}>{ingredient}</li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        {/*提案手順*/}
-                        <div className="directions-output">
-                            <h4>作り方</h4>
-                            <div className="directions">
-                                <ol>
-                                    {directions.map((direction,index) => (
-                                        <li key={index}>{direction}</li>
-                                    ))}
-                                </ol>
+                            {/*提案手順*/}
+                            <div className="directions-output">
+                                <h4>作り方</h4>
+                                <div className="directions">
+                                    <ol>
+                                        {directions.map((direction,index) => (
+                                            <li key={index}>{direction}</li>
+                                        ))}
+                                    </ol>
+                                </div>
                             </div>
-                        </div>
-                        {/*調理ポイント*/}
-                        <div className="point-output">
-                            <h4>作り方のポイント</h4>
-                            <div className="recipe-point">
-                                <p>{recipePoint}</p>
+                            {/*調理ポイント*/}
+                            <div className="point-output">
+                                <h4>作り方のポイント</h4>
+                                <div className="recipe-point">
+                                    <p>{recipePoint}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/*栄養推定部分*/}
-                <section className="nutrition-area"></section>
+                {/*栄養推定部分*/} 
+                <section className="nutrition-area">
+                    <div className="nutrition-output"></div>
+                </section>
 
                 {/*イメージAI画像部分*/}
                 <section className="image-area"></section>
