@@ -35,7 +35,7 @@ function CookingAssistance(){
     const [directions,setDirections] = useState(["鶏肉を一口大に切る。","フライパンでバターを熱して鶏肉を焼く。","火が通ったらレモン汁を加えて仕上げる。"]);    //手順リスト
 
     /*調理ポイント*/
-    const [recipePoint,setRecipePoint] = useState("バターを焦がさないように弱火で仕上げる");  //調理ポイント
+    const [recipePoint,setRecipePoint] = useState("バターを焦がさないように弱火で仕上げる。");  //調理ポイント
 
     return(
         <div className="cooking-container">
