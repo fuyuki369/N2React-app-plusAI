@@ -25,6 +25,11 @@ function CookingAssistance(){
     /*テイスト・雰囲気・目的*/
     const [taste,setTaste] = useState("");              //テイスト(自由)
 
+    //アウトプット
+    /*レシピタイトル・概要*/
+    const [IngredientTitle,setIngredientTitle] = useState("");      //レシピタイトル
+    const [IngredientSummary,setIngredientSummary] = useState("");  //レシピ概要
+
     return(
         <div className="cooking-container">
             {/*イントロ部分*/}
@@ -45,6 +50,7 @@ function CookingAssistance(){
             </div>
             {/*メイン部分*/}
             <div className="cooking-main">
+
                 {/*条件入力部分*/}
                 <section className="input-area">
                     <h3>好みの条件を入力！</h3>
@@ -179,10 +185,26 @@ function CookingAssistance(){
                         </div>
                     </div>
                 </section>
+
                 {/*レシピ等提案部分*/}
-                <section className="recipe-area"></section>
+                <section className="recipe-area">
+                    <div className="recipe-output">
+                        <h3>おすすめレシピ:{IngredientTitle}</h3>
+                        <p>{IngredientSummary}</p>
+                        {/*提案材料*/}
+                        <div className="ingredient-output">
+
+                        </div>
+                        {/*提案手順*/}
+                        <div className="directions-output"></div>
+                        {/*提案ポイント*/}
+                        <div className="directions-output"></div>
+                    </div>
+                </section>
+
                 {/*栄養推定部分*/}
                 <section className="nutrition-area"></section>
+
                 {/*イメージAI画像部分*/}
                 <section className="image-area"></section>
             </div>
