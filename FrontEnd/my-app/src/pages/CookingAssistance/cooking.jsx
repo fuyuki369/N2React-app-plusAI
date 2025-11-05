@@ -25,6 +25,7 @@ function CookingAssistance(){
     /*テイスト・雰囲気・目的*/
     const [taste,setTaste] = useState("");              //テイスト(自由)
 
+
     //アウトプット
     /*レシピタイトル・概要*/
     const [IngredientTitle,setIngredientTitle] = useState("レシピ名 of the レシピ名");      //レシピタイトル  //css調整のため一時的初期値
@@ -36,6 +37,16 @@ function CookingAssistance(){
 
     /*調理ポイント*/
     const [recipePoint,setRecipePoint] = useState("バターを焦がさないように弱火で仕上げる。");  //調理ポイント
+
+
+    //栄養バランス
+    /*栄養素*/
+    const [calorie,setCalorie] = useState("520");                  //カロリー //一時的初期値
+    const [protein,setProtein] = useState("26");                  //タンパク質
+    const [lipid,setLipid] = useState("14");                      //脂質
+    const [carbohydrates,setCarbohydrates] = useState("55");      //炭水化物
+    const [fiber,setFiber] = useState("4");                      //食物繊維
+    const [salt,setSalt] = useState("2.1");                        //塩分
 
     return(
         <div className="cooking-container">
@@ -234,7 +245,35 @@ function CookingAssistance(){
 
                 {/*栄養推定部分*/} 
                 <section className="nutrition-area">
-                    <div className="nutrition-output"></div>
+                    <div className="nutrition-output">
+                        <h3>このレシピの栄養バランス</h3>  
+                        <div className="nutrition-detail">
+                            <div className="nutrition calorie">  {/*spanで左右に分ける*/} 
+                                <span className="label">カロリー</span>
+                                <span className="value">{calorie}kcal</span>         {/*単位は一旦つけておく*/} 
+                            </div>
+                            <div className="nutrition protein">
+                                <span className="label">タンパク質</span>
+                                <span className="value">{protein}g</span>
+                            </div>
+                            <div className="nutrition lipid">
+                                <span className="label">脂質</span>
+                                <span className="value">{lipid}g</span>
+                            </div>
+                            <div className="nutrition carbohydrates">
+                                <span className="label">炭水化物</span>
+                                <span className="value">{carbohydrates}g</span>
+                            </div>
+                            <div className="nutrition fiber">
+                                <span className="label">食物繊維</span>
+                                <span className="value">{fiber}g</span>
+                            </div>
+                            <div className="nutrition salt">
+                                <span className="label">塩分</span>
+                                <span className="value">{salt}g</span>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 {/*イメージAI画像部分*/}
