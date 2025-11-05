@@ -216,7 +216,7 @@ function CookingAssistance(){
                                 <div className="ingredients">
                                     <ul>
                                         {ingredients.map((ingredient,index) => (
-                                            <li key={index}>{ingredient}</li>
+                                            <li key={index}>・{ingredient}</li>
                                         ))}
                                     </ul>
                                 </div>
@@ -227,7 +227,7 @@ function CookingAssistance(){
                                 <div className="directions">
                                     <ol>
                                         {directions.map((direction,index) => (
-                                            <li key={index}>{direction}</li>
+                                            <li key={index}>{index+1}.{direction}</li>  //0からの番号を{index+1}にして1からにする
                                         ))}
                                     </ol>
                                 </div>

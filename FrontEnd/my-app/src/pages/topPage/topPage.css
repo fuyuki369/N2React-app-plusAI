@@ -86,7 +86,7 @@
 
 .project:hover{ 
     margin: 20px 30px;    /*安定した数値(m+p)*/
-    padding: 20px;        /*サイズが変化はtransformで対応ok*/
+    padding: 20px;        /*サイズが変化はtransformで対応ok*/   /*択としてbox-shadowの変化のスタイルもアリ*/
 }
 
 .project h2{
