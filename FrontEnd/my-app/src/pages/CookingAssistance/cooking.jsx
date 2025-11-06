@@ -49,7 +49,7 @@ function CookingAssistance(){
     const [salt,setSalt] = useState("2.1");                        //塩分
 
     //イメージ画像
-    const [AIimageURL,setAIimageURL] = useState("");
+    const [AIimageURL,setAIimageURL] = useState("src/image/image_cooking/ChatGPT_cookingSampleA.png");  //サンプル初期値(※サイズ40%)
 
     return(
         <div className="cooking-container">
