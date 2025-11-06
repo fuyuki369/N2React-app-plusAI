@@ -48,6 +48,9 @@ function CookingAssistance(){
     const [fiber,setFiber] = useState("4");                      //食物繊維
     const [salt,setSalt] = useState("2.1");                        //塩分
 
+    //イメージ画像
+    const [AIimageURL,setAIimageURL] = useState("");
+
     return(
         <div className="cooking-container">
             {/*イントロ部分*/}
@@ -277,7 +280,14 @@ function CookingAssistance(){
                 </section>
 
                 {/*イメージAI画像部分*/}
-                <section className="image-area"></section>
+                <section className="image-area">
+                    <div className="image-output">
+                        <h3>AIによるイメージ画像</h3>
+                        <div className="image">
+                            <img src={AIimageURL} />
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     )
