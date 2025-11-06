@@ -294,3 +294,33 @@
 
 
 /*イメージ画像部分*/
+
+.image-area{
+    display: flex;
+    flex-flow: column;
+    margin-top: 90px;
+}
+
+.image-output{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.image-output h3{
+    font-size: 2rem;
+    padding: 5px;
+    margin-bottom: 50px;
+    border-bottom: solid 2px rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.image{
+    padding: 20px;
+    border: dotted 4px rgba(255, 255, 255,0.8);
+    border-radius: 10px;
+}
+
+.image img{
+    border-radius: 10px;
+}

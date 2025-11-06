@@ -84,8 +84,8 @@ function CookingAssistance(){
                                 <input 
                                     type="text"
                                     id="mein-ingredient"
-                                    value={meinIngredient}
-                                    onChange={(e) =>setMeinIngredient(e.target.value)}   //valueとonChangeはセット意識
+                                    value={meinIngredient}                                  //valueとonChangeはセット意識
+                                    onChange={(e) =>setMeinIngredient(e.target.value)}      //(e) =>setState(e.target.value)意識
                                 />
                                 <label htmlFor="sub-ingredient">追加したい食材</label>
                                 <input 
