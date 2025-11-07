@@ -28,8 +28,8 @@ function CookingAssistance(){
 
     //アウトプット
     /*レシピタイトル・概要*/
-    const [IngredientTitle,setIngredientTitle] = useState("レシピ名 of the レシピ名");      //レシピタイトル  //css調整のため一時的初期値
-    const [IngredientSummary,setIngredientSummary] = useState("さっぱりした風味で疲労回復にピッタリ！");  //レシピ概要
+    const [ingredientTitle,setIngredientTitle] = useState("レシピ名 of the レシピ名");      //レシピタイトル  //css調整のため一時的初期値
+    const [ingredientSummary,setIngredientSummary] = useState("さっぱりした風味で疲労回復にピッタリ！");  //レシピ概要
 
     /*材料・手順(リスト)*/
     const [ingredients,setIngredients] = useState(["鶏むね肉 200g","レモン汁 大さじ1","バター 10g"]);  //材料リスト
@@ -41,15 +41,17 @@ function CookingAssistance(){
 
     //栄養バランス
     /*栄養素*/
-    const [calorie,setCalorie] = useState("520");                  //カロリー //一時的初期値
-    const [protein,setProtein] = useState("26");                  //タンパク質
-    const [lipid,setLipid] = useState("14");                      //脂質
-    const [carbohydrates,setCarbohydrates] = useState("55");      //炭水化物
-    const [fiber,setFiber] = useState("4");                      //食物繊維
-    const [salt,setSalt] = useState("2.1");                        //塩分
+    const [calorie,setCalorie] = useState("520");                   //カロリー //一時的初期値
+    const [protein,setProtein] = useState("26");                    //タンパク質
+    const [lipid,setLipid] = useState("14");                        //脂質
+    const [carbohydrates,setCarbohydrates] = useState("55");        //炭水化物
+    const [fiber,setFiber] = useState("4");                         //食物繊維
+    const [salt,setSalt] = useState("2.1");                         //塩分
 
-    //イメージ画像
-    const [AIimageURL,setAIimageURL] = useState("src/image/image_cooking/ChatGPT_cookingSampleA.png");  //サンプル初期値(※サイズ40%)
+    //イメージ画像  //サンプル初期値(※サイズ40%)
+    const [AIimageURL,setAIimageURL] = useState("src/image/image_cooking/ChatGPT_cookingSampleA.png");  //イメージ画像(※サイズ40%)
+
+
 
     //条件送信ボタン(「この条件をAIに伝える!」ボタン)
     const handleSubmit = async(e) => {    //e.preventDefault()を使いたいから(e)をもってくる
@@ -87,16 +89,40 @@ function CookingAssistance(){
                     conditions: recipeConditions,
                 })
             })
-            const data = await response.json();
 
+            //!response.okのチェック  //※response.json()の前に置くのが一般的
             if(!response.ok){
                 console.log('AIからの提案が受け取れていません。');
             }
 
+            //JSONに切り替える
+            const data = await response.json();
+
             //データ反映
+            /*レシピタイトル・概要*/
+            setIngredientTitle(data.ingredientTitle);       //レシピタイトル
+            setIngredientSummary(data.ingredientSummary);   //レシピ概要
+
+            /*材料・手順(リスト)*/
+            setIngredients(data.ingredients);               //材料リスト
+            setDirections(data.directions);                 //手順リスト
+
+            /*調理ポイント*/
+            setRecipePoint(data.recipePoint);               //料理ポイント
+
+            /*栄養素*/
+            setCalorie(data.calorie);                       //カロリー 
+            setProtein(data.protein);                       //タンパク質
+            setLipid(data.lipid);                           //脂質
+            setCarbohydrates(data.carbohydrates);           //炭水化物
+            setFiber(data.fiber);                           //食物繊維
+            setSalt(data.salt);                             //塩分
+
+            /*イメージ画像*/
+            setAIimageURL(data.AIimageURL);                 //イメージ画像
 
         }catch(error){
-            console.error("通信エラー",error)
+            console.error("通信エラー",error);  
         }
     }
 
@@ -259,8 +285,8 @@ function CookingAssistance(){
                 {/*レシピ提案部分*/}
                 <section className="recipe-area">
                     <div className="recipe-output">
-                        <h3>{IngredientTitle}</h3>
-                        <p>{IngredientSummary}</p> 
+                        <h3>{ingredientTitle}</h3>
+                        <p>{ingredientSummary}</p> 
                         <div className="recipe-detail">
                             {/*提案材料*/}
                             <div className="ingredients-output">
