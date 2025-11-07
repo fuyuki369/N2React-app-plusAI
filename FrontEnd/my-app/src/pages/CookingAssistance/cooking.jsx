@@ -76,8 +76,28 @@ function CookingAssistance(){
             /*テイスト・雰囲気・目的*/
             taste,              //テイスト(自由)
         }
-
         //console.log("動作確認(バナナ)",recipeConditions)  //動作確認済み
+
+        //API処理
+        try{
+            const response = await fetch('APIのURL',{
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body:JSON.stringify({
+                    conditions: recipeConditions,
+                })
+            })
+            const data = await response.json();
+
+            if(!response.ok){
+                console.log('AIからの提案が受け取れていません。');
+            }
+
+            //データ反映
+
+        }catch(error){
+            console.error("通信エラー",error)
+        }
     }
 
     return(
