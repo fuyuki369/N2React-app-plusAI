@@ -51,6 +51,35 @@ function CookingAssistance(){
     //イメージ画像
     const [AIimageURL,setAIimageURL] = useState("src/image/image_cooking/ChatGPT_cookingSampleA.png");  //サンプル初期値(※サイズ40%)
 
+    //条件送信ボタン(「この条件をAIに伝える!」ボタン)
+    const handleSubmit = async(e) => {    //e.preventDefault()を使いたいから(e)をもってくる
+        e.preventDefault();  //デフォルトの動作防止
+        //console.log("動作確認(りんご)");  //動作確認済み
+
+        //条件をまとめた値
+        const recipeConditions = {
+            /*食材*/
+            meinIngredient,     //主な食材
+            subIngredient,      //追加したい食材
+            avoidIngredient,    //避けたい食材
+            /*ジャンル・分類*/
+            cuisineType,        //料理ジャンル
+            category,           //分類
+            season,             //季節
+            /*時間・手間*/
+            cookTime,           //調理時間
+            difficulty,         //難易度
+            cost,               //予算
+            /*シチュエーション*/
+            whom,               //誰と
+            mood,               //気分
+            /*テイスト・雰囲気・目的*/
+            taste,              //テイスト(自由)
+        }
+
+        //console.log("動作確認(バナナ)",recipeConditions)  //動作確認済み
+    }
+
     return(
         <div className="cooking-container">
             {/*イントロ部分*/}
@@ -155,7 +184,7 @@ function CookingAssistance(){
                                     <option value="hard">手の込んだ料理</option>
                                 </select>
                                 <label htmlFor="cost">予算</label>
-                                <select id="const" value={cost} onChange={(e) =>setCost(e.target.value)}>
+                                <select id="cost" value={cost} onChange={(e) =>setCost(e.target.value)}>
                                     <option value="">指定無し</option>
                                     <option value="500yen">~500円</option>
                                     <option value="1000yen">~1000円</option>
@@ -200,8 +229,8 @@ function CookingAssistance(){
                         </div>
                         {/*送信ボタン*/}
                         <div className="submit-area">
-                            <button className="submit-btn" onClick={() => handleSubmit()}> {/*あとで！*/}
-                                この条件をAIに伝える！
+                            <button className="submit-btn" onClick={handleSubmit}>
+                                この条件をAIに伝える！       {/*eだけ渡すなら{handleSubmit}でいい(デフォルトで渡される)*/}
                             </button>
                         </div>
                     </div>
