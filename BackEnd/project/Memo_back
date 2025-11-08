@@ -1,6 +1,9 @@
-「準備前提案」
+「準備」
 
 package系の位置を確認
+エントリーポイントは「main.mjs」
+project/main.mjsにする
 
-index.mjsの名前をmain.mjsに提案
-project/main.mjsを提案
+
+「main.mjs準備前メモ」
+
