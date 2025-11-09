@@ -4,3 +4,9 @@ Controller、model、routesの中の構成を考える
 
 routes     は cookingRoutes.mjs を提案
 Controller は cookingController.mjs を提案
+model      は 後でDB関連を入れる場所
+
+
+「コントローラーメモ」
+
+最初はダミーデータで試す
