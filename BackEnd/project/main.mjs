@@ -4,7 +4,7 @@ import express from "express";      //npm install express インストール確�
 import cors from "cors";            //npm install cors    インストール確認済み
 
 //ルートインポート
-import cookingRoutes from "./CookingProject/Cooking_routes/cookingRoutes.mjs"
+import cookingRoutes from "./CookingProject/Cooking_routes/cookingRoutes.mjs";
 
 //サーバー本体作成とPORT設定
 const app = express();
@@ -20,7 +20,7 @@ app.use(cors({
 app.use(express.json()); 
 
 //ルートからの機能を使用するコード app.use("ルートURL",ルートインポート値)
-app.use("/api/cooking",cookingRoutes);
+app.use("/api/cooking",cookingRoutes);  //料理AIアシスタント(CookingAssistance)
 
 //サーバー起動  //cd BackEnd → node project/main.mjs で起動
 app.listen(PORT, () => {
