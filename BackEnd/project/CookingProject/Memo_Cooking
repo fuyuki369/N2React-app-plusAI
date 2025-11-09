@@ -1,3 +1,6 @@
 「料理プロジェクトメモ」
 
 Controller、model、routesの中の構成を考える
+
+routes     は cookingRoutes.mjs を提案
+Controller は cookingController.mjs を提案
