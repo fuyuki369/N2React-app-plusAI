@@ -82,7 +82,7 @@ function CookingAssistance(){
 
         //API処理
         try{
-            const response = await fetch('APIのURL',{
+            const response = await fetch('http://localhost:3000/api/cooking/post',{
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body:JSON.stringify({
