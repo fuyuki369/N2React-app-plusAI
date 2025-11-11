@@ -6,7 +6,7 @@ export const postRecipeSuggestion = async(req,res) => {   //非同期関数(初�
         const { conditions } = req.body; //フロントから条件を取得(分割代入)
         console.log("受け取った条件:", conditions); //バックエンドの確認ログ
 
-        //仮のダミーリザルト
+        //仮のダミーリザルト  //ここからres200までコメントアウト予定
         const dummyResult = {
         ingredientTitle: "鶏むね肉のレモンバター炒め",
         ingredientSummary: "さっぱりした風味で疲労回復にぴったり！",
