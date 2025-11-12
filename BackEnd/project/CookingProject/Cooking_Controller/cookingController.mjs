@@ -1,5 +1,13 @@
 /*料理コントローラー*/
 
+import OpenAI from "openai";  //OpenAIインポート
+
+//OpenAI準備
+const client = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+});
+
+
 //AI料理提案
 export const postRecipeSuggestion = async(req,res) => {   //非同期関数(初心者向けで安全)   //同期関数: export async function 値(req,res) {...}
     try{     //エラー対処の安全策  ※asyncが大切
