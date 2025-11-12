@@ -14,3 +14,8 @@ FrontEnd/my-app/dist/
 # Node.js (BackEnd)
 BackEnd/node_modules/
 BackEnd/project/**/node_modules/
+
+#APIキー
+
+.env
+
