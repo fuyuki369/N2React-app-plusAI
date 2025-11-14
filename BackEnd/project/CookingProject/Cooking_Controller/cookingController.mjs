@@ -14,6 +14,39 @@ export const postRecipeSuggestion = async(req,res) => {   //非同期関数(初�
         const { conditions } = req.body; //フロントから条件を取得(分割代入)
         console.log("受け取った条件:", conditions); //バックエンドの確認ログ
 
+        //プロンプトの組み立て   //画像は一旦後で
+        const prompt = `
+        以下の条件に合うレシピを提案してください。
+
+        [条件]
+        主な食材: ${conditions.meinIngredient}
+        追加したい食材: ${conditions.subIngredient}
+        避けたい食材: ${conditions.avoidIngredient}
+        料理ジャンル: ${conditions.cuisineType}
+        分類: ${conditions.category}
+        季節: ${conditions.season}
+        調理時間: ${conditions.cookTime}
+        難易度: ${conditions.difficulty}
+        予算: ${conditions.cost}
+        誰と食べるか: ${conditions.whom}
+        どんな気分か: ${conditions.mood}
+        その他(テイスト、目的、雰囲気など): ${conditions.taste}
+
+        [出力フォーマット]
+        {
+            "ingredientTitle": "",
+            "ingredientSummary": "",
+            "ingredients": [],
+            "directions": [],
+            "recipePoint": "",
+            "calorie": "",
+            "protein": "",
+            "lipid": "",
+            "carbohydrates": "",
+            "fiber": "",
+            "salt": ""
+        }
+        `;
 
         
         res.status(200).json(Result);  //フロントにレスポンスする ※リクエストとレスポンスは一緒の意識
