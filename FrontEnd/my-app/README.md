@@ -18,10 +18,9 @@ If you are developing a production application, we recommend using TypeScript wi
 ## サーバー起動/ブラウザ表示
 
 サーバー起動:
-cd BackEnd
-node project/main.mjs
+cd BackEnd/project
+node main.mjs
 
 ブラウザ表示:
-cd FrontEnd
-cd my-app
+cd FrontEnd/my-app
 npm run dev
