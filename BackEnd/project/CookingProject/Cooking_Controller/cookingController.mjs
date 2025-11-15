@@ -48,6 +48,15 @@ export const postRecipeSuggestion = async(req,res) => {   //非同期関数(初�
         }
         `;
 
+        //AIリクエスト
+        const completion = await client.chat.completions.create({   //GPTに「返事を作ってください」と依頼
+            model: "gpt-4o-mini",   //AIモデルの指定  //今回は軽くて速いモデル
+            messages: [{        //やり取りの経歴をまとめる場所
+                role: "user",       //役割を指定  //user→人間からの発言
+                content: prompt,    //プロンプトを入れる(上で組み立てた「prompt」)
+            }],
+        });
+
         
         res.status(200).json(Result);  //フロントにレスポンスする ※リクエストとレスポンスは一緒の意識
     }catch(error){
