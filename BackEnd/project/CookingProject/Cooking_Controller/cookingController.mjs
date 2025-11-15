@@ -57,8 +57,12 @@ export const postRecipeSuggestion = async(req,res) => {   //非同期関数(初�
             }],
         });
 
-        
-        res.status(200).json(Result);  //フロントにレスポンスする ※リクエストとレスポンスは一緒の意識
+        //AIレスポンス形式変換
+        const resultText = completion.choices[0].message.content;  //上のAIリクエストcompletionの(一つ目の)返答文 ※contentが本文
+        const result = JSON.parse(resultText);                  //JSONテキストをJSONオブジェクトに変換
+
+        //フロントへのレスポンス
+        res.status(200).json(result);  //フロントにレスポンスする ※リクエストとレスポンスは一緒の意識
     }catch(error){
         console.log("エラー:",error);
         res.status(500).json({ message: "サーバーエラーが発生しました。" , error: error.message })
