@@ -65,7 +65,22 @@ export const postRecipeSuggestion = async(req,res) => {   //非同期関数(初�
         res.status(200).json(result);  //フロントにレスポンスする ※リクエストとレスポンスは一緒の意識
     }catch(error){
         console.log("エラー:",error);
-        res.status(500).json({ message: "サーバーエラーが発生しました。" , error: error.message })
+        //res.status(500).json({ message: "サーバーエラーが発生しました。" , error: error.message });
+
+        res.status(200).json({   //失敗した時用のダミーデータ
+            ingredientTitle: "エラー：API利用上限に達しています",
+            ingredientSummary: "現在AIを使えないたエラー用サンプルを表示しています。",
+            ingredients: ["データ①","データ②","データ③"],
+            directions: ["データ①","データ②","データ③"],
+            recipePoint: "APIエラー",
+            calorie: 1,
+            protein: 2,
+            lipid: 3,
+            carbohydrates: 4,
+            fiber: 5,
+            salt: 6,
+            AIimageURL: "http://localhost:5173/src/image/image_cooking/ChatGPT_cookingSampleA.png",
+        })
     }
 }
 

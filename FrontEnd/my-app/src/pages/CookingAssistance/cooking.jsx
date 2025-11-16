@@ -28,25 +28,25 @@ function CookingAssistance(){
 
     //アウトプット
     /*レシピタイトル・概要*/
-    const [ingredientTitle,setIngredientTitle] = useState("レシピ名 of the レシピ名");      //レシピタイトル  //css調整のため一時的初期値
-    const [ingredientSummary,setIngredientSummary] = useState("さっぱりした風味で疲労回復にピッタリ！");  //レシピ概要
+    const [ingredientTitle,setIngredientTitle] = useState("サンプルレシピ");      //レシピタイトル  //css調整のため一時的初期値
+    const [ingredientSummary,setIngredientSummary] = useState("「※ここにレシピの簡単な概要が表示されます」");  //レシピ概要
 
     /*材料・手順(リスト)*/
-    const [ingredients,setIngredients] = useState(["鶏むね肉 200g","レモン汁 大さじ1","バター 10g"]);  //材料リスト
-    const [directions,setDirections] = useState(["鶏肉を一口大に切る。","フライパンでバターを熱して鶏肉を焼く。","火が通ったらレモン汁を加えて仕上げる。"]);    //手順リスト
+    const [ingredients,setIngredients] = useState(["サンプル具材A","サンプル具材B","サンプル具材C"]);  //材料リスト
+    const [directions,setDirections] = useState(["サンプル手順①","サンプル手順②","サンプル手順③"]);    //手順リスト
 
     /*調理ポイント*/
-    const [recipePoint,setRecipePoint] = useState("バターを焦がさないように弱火で仕上げる。");  //調理ポイント
+    const [recipePoint,setRecipePoint] = useState("※ここに調理ポイントを表示");  //調理ポイント
 
 
     //栄養バランス
     /*栄養素*/
-    const [calorie,setCalorie] = useState("520");                   //カロリー //一時的初期値
-    const [protein,setProtein] = useState("26");                    //タンパク質
-    const [lipid,setLipid] = useState("14");                        //脂質
-    const [carbohydrates,setCarbohydrates] = useState("55");        //炭水化物
-    const [fiber,setFiber] = useState("4");                         //食物繊維
-    const [salt,setSalt] = useState("2.1");                         //塩分
+    const [calorie,setCalorie] = useState("0");                   //カロリー //一時的初期値
+    const [protein,setProtein] = useState("0");                    //タンパク質
+    const [lipid,setLipid] = useState("0");                        //脂質
+    const [carbohydrates,setCarbohydrates] = useState("0");        //炭水化物
+    const [fiber,setFiber] = useState("0");                         //食物繊維
+    const [salt,setSalt] = useState("0");                         //塩分
 
     //イメージ画像  //サンプル初期値(※サイズ40%)
     const [AIimageURL,setAIimageURL] = useState("src/image/image_cooking/ChatGPT_cookingSampleA.png");  //イメージ画像(※サイズ40%)
