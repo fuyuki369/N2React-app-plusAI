@@ -1,25 +1,35 @@
 /*料理コントローラー*/
 
+/*ローカルAIへの変更点 → 
+    undata: AIPキー 
+    undata: AIモデル指定
+    undata: レスポンス形式変換
+*/
+//ローカルAIでの英文の状態での提案表示に一度成功
+
 import OpenAI from "openai";  //OpenAIインポート
 
 //OpenAI準備
 const client = new OpenAI({
-    //OpenAiのAPIキー
+
+    /*APIキー(openAI or ローカルAI)*/
+
+    /*OpenAiのAPIキー*/
     //apiKey: process.env.OPENAI_API_KEY, 
 
-    //ローカルAIのAPIキー
+    /*ローカルAIのAPIキー*/
     baseURL: "http://localhost:1234/v1",
     apiKey: "lm-studio",  
 });
 
 
 //AI料理提案
-export const postRecipeSuggestion = async(req,res) => {   //非同期関数(初心者向けで安全)   //同期関数: export async function 値(req,res) {...}
+export const postRecipeSuggestion = async(req,res) => {   //非同期関数(安全)   //同期関数: export async function 値(req,res) {...}
     try{     //エラー対処の安全策  ※asyncが大切
         const { conditions } = req.body; //フロントから条件を取得(分割代入)
         console.log("受け取った条件:", conditions); //バックエンドの確認ログ
 
-        //プロンプトの組み立て   //画像は一旦後で
+        //プロンプトの組み立て
         const prompt = `
         以下の条件に合うレシピを提案してください。
 
@@ -55,21 +65,37 @@ export const postRecipeSuggestion = async(req,res) => {   //非同期関数(初�
 
         //AIリクエスト
         const completion = await client.chat.completions.create({   //GPTに「返事を作ってください」と依頼
-            //OpenAIモデルの指定
+            /*モデル指定(openAI or ローカルAI)*/
+
+            /*OpenAIモデルの指定*/
             //model: "gpt-4o-mini", 
 
-            //ローカルAIモデルの指定
+            /*ローカルAIモデルの指定*/
             model: "microsoft/phi-4-mini-reasoning",
 
+            //メッセージ
             messages: [{        //やり取りの経歴をまとめる場所
                 role: "user",       //役割を指定  //user→人間からの発言
                 content: prompt,    //プロンプトを入れる(上で組み立てた「prompt」)
             }],
         });
 
-        //AIレスポンス形式変換
-        const resultText = completion.choices[0].message.content;  //上のAIリクエストcompletionの(一つ目の)返答文 ※contentが本文
-        const result = JSON.parse(resultText);                  //JSONテキストをJSONオブジェクトに変換
+        /*レスポンス形式変換(openAI or ローカルAI)*/
+
+        /*OpenAIレスポンス形式変換*/
+        //const resultText = completion.choices[0].message.content;  //上のAIリクエストcompletionの(一つ目の)返答文 ※contentが本文
+        //const result = JSON.parse(resultText);                  //JSONテキストをJSONオブジェクトに変換
+
+
+        /*ローカルAIレスポンス形式変換*/
+        const rawText = completion.choices[0].message.content;
+        const jsonMatch = rawText.match(/\{[\s\S]*\}/);// JSON部分だけ抜き出す
+        if (!jsonMatch) {
+            throw new Error("AI の返答に JSON が含まれていません");// JSONが見つからない場合の fallback
+        }
+        const jsonString = jsonMatch[0];
+        const result = JSON.parse(jsonString);// JSONをパース
+
 
         //フロントへのレスポンス
         res.status(200).json(result);  //フロントにレスポンスする ※リクエストとレスポンスは一緒の意識
@@ -96,7 +122,7 @@ export const postRecipeSuggestion = async(req,res) => {   //非同期関数(初�
 
 
 //AI料理提案  //確認用ダミーコード(確認済み)
-/*export const postRecipeSuggestion = async(req,res) => {   //非同期関数(初心者向けで安全)   //同期関数: export async function 値(req,res) {...}
+/*export const postRecipeSuggestion = async(req,res) => {   //非同期関数(安全)   //同期関数: export async function 値(req,res) {...}
     try{     //エラー対処の安全策  ※asyncが大切
         const { conditions } = req.body; //フロントから条件を取得(分割代入)
         console.log("受け取った条件:", conditions); //バックエンドの確認ログ
