@@ -104,8 +104,8 @@ export const postRecipeSuggestion = async(req,res) => {   //非同期関数(安�
         //res.status(500).json({ message: "サーバーエラーが発生しました。" , error: error.message });
 
         res.status(200).json({   //失敗した時用のダミーデータ
-            ingredientTitle: "エラー：API利用上限に達しています",
-            ingredientSummary: "現在AIを使えないたエラー用サンプルを表示しています。",
+            ingredientTitle: "エラー用サンプル",
+            ingredientSummary: "現在AIが使えないためエラー用サンプルを表示しています。",
             ingredients: ["データ①","データ②","データ③"],
             directions: ["データ①","データ②","データ③"],
             recipePoint: "APIエラー",
