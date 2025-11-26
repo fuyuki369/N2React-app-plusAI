@@ -25,7 +25,7 @@ app.use(express.json());
 app.use("/api/cooking",cookingRoutes);  //料理AIアシスタント(CookingAssistance)
 
 //環境変数確認  //確認済み
-console.log("環境変数:", process.env.OPENAI_API_KEY);
+//console.log("環境変数:", process.env.OPENAI_API_KEY);
 
 //サーバー起動  //cd BackEnd → node project/main.mjs で起動
 app.listen(PORT, () => {

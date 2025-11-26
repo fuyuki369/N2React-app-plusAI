@@ -1,6 +1,6 @@
 /*料理コントローラー*/
 
-/*ローカルAIへの変更点 → 
+/*ローカルAIへの変更部分 → 
     undata: AIPキー 
     undata: AIモデル指定
     undata: レスポンス形式変換
@@ -15,11 +15,11 @@ const client = new OpenAI({
     /*APIキー(openAI or ローカルAI)*/
 
     /*OpenAiのAPIキー*/
-    //apiKey: process.env.OPENAI_API_KEY, 
+    apiKey: process.env.OPENAI_API_KEY, 
 
     /*ローカルAIのAPIキー*/
-    baseURL: "http://localhost:1234/v1",
-    apiKey: "lm-studio",  
+    //baseURL: "http://localhost:1234/v1",
+    //apiKey: "lm-studio",  
 });
 
 
@@ -68,10 +68,10 @@ export const postRecipeSuggestion = async(req,res) => {   //非同期関数(安�
             /*モデル指定(openAI or ローカルAI)*/
 
             /*OpenAIモデルの指定*/
-            //model: "gpt-4o-mini", 
+            model: "gpt-4o-mini", 
 
             /*ローカルAIモデルの指定*/
-            model: "microsoft/phi-4-mini-reasoning",
+            //model: "microsoft/phi-4-mini-reasoning",
 
             //メッセージ
             messages: [{        //やり取りの経歴をまとめる場所
@@ -83,18 +83,18 @@ export const postRecipeSuggestion = async(req,res) => {   //非同期関数(安�
         /*レスポンス形式変換(openAI or ローカルAI)*/
 
         /*OpenAIレスポンス形式変換*/
-        //const resultText = completion.choices[0].message.content;  //上のAIリクエストcompletionの(一つ目の)返答文 ※contentが本文
-        //const result = JSON.parse(resultText);                  //JSONテキストをJSONオブジェクトに変換
+        const resultText = completion.choices[0].message.content;  //上のAIリクエストcompletionの(一つ目の)返答文 ※contentが本文
+        const result = JSON.parse(resultText);                  //JSONテキストをJSONオブジェクトに変換
 
 
         /*ローカルAIレスポンス形式変換*/
-        const rawText = completion.choices[0].message.content;
-        const jsonMatch = rawText.match(/\{[\s\S]*\}/);// JSON部分だけ抜き出す
-        if (!jsonMatch) {
-            throw new Error("AI の返答に JSON が含まれていません");// JSONが見つからない場合の fallback
-        }
-        const jsonString = jsonMatch[0];
-        const result = JSON.parse(jsonString);// JSONをパース
+        //const rawText = completion.choices[0].message.content;
+        //const jsonMatch = rawText.match(/\{[\s\S]*\}/);// JSON部分だけ抜き出す
+        //if (!jsonMatch) {
+            //throw new Error("AI の返答に JSON が含まれていません");// JSONが見つからない場合の fallback
+        //}
+        //const jsonString = jsonMatch[0];
+        //const result = JSON.parse(jsonString);// JSONテキストをJSONオブジェクトに変換
 
 
         //フロントへのレスポンス
